@@ -6,6 +6,7 @@ import Loading from "../components/Loading";
 function HomePage() {
   const [meals, setMeals] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
+  const [refresh, setRefresh] = React.useState(false);
 
   const fetchMeals = async () => {
     const response = await axios.get(
@@ -17,7 +18,7 @@ function HomePage() {
 
   useEffect(() => {
     fetchMeals();
-  });
+  }, [refresh]);
 
   return (
     <div className=" flex flex-wrap m-4 items-center justify-center">
@@ -26,7 +27,12 @@ function HomePage() {
       ) : (
         <>
           {meals.map((m, index) => (
-            <MealCard key={index} meal={m} />
+            <MealCard
+              key={index}
+              meal={m}
+              setRefresh={setRefresh}
+              refresh={refresh}
+            />
           ))}
         </>
       )}

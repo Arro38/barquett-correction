@@ -6,7 +6,7 @@ import axios from "axios";
 import { NotificationManager } from "react-notifications";
 import { NavLink } from "react-router-dom";
 
-function MealCard({ meal }) {
+function MealCard({ meal, setRefresh, refresh }) {
   const handleDelete = async () => {
     const confirmDelete = window.confirm(
       "Voulez-vous vraiment supprimer ce repas ?"
@@ -22,6 +22,7 @@ function MealCard({ meal }) {
     } else {
       NotificationManager.error("Une erreur est survenue", "Erreur", 3000);
     }
+    setRefresh(!refresh);
   };
 
   return (

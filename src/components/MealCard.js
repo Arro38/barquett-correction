@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ImageDefault from "../assets/img/default.png";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
@@ -29,7 +29,11 @@ function MealCard({ meal, setRefresh, refresh }) {
 
   return (
     <div className="rounded-md border-4 w-60 m-2 relative">
-      <img src={ImageDefault} className=" bg-gray-300 p-4" />
+      <img
+        src={ImageDefault}
+        className=" bg-gray-300 p-4"
+        alt="Image de repas"
+      />
       <div className=" text-center p-2">
         {meal.createdBy && meal.createdBy === username ? (
           <div className=" absolute top-1 right-1 flex gap-2 ">

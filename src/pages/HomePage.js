@@ -24,7 +24,7 @@ function HomePage() {
 
   useEffect(() => {
     fetchMeals();
-  }, [refresh, currentPage]);
+  }, [refresh, currentPage, fetchMeals]);
   const pages = [];
   for (let i = 1; i <= lastPage; i++) {
     pages.push(
@@ -56,6 +56,7 @@ function HomePage() {
                   return -1;
                 }
               }
+              return 1;
             })
             .filter((m) => (myMeal ? m.createdBy === username : true))
             .map((m, index) => (

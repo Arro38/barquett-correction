@@ -29,11 +29,7 @@ function MealCard({ meal, setRefresh, refresh }) {
 
   return (
     <div className="rounded-md border-4 w-60 m-2 relative">
-      <img
-        src={ImageDefault}
-        className=" bg-gray-300 p-4"
-        alt="Image de repas"
-      />
+      <img src={ImageDefault} className=" bg-gray-300 p-4" alt={meal.name} />
       <div className=" text-center p-2">
         {meal.createdBy && meal.createdBy === username ? (
           <div className=" absolute top-1 right-1 flex gap-2 ">

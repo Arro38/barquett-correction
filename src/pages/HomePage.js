@@ -13,18 +13,17 @@ function HomePage() {
 
   const username = localStorage.getItem("username");
 
-  const fetchMeals = async () => {
-    const response = await axios.get(
-      "https://barquett-api.formaterz.fr/api/meals?page=" + currentPage
-    );
-    setLastPage(response.data["hydra:view"]["hydra:last"].split("page=")[1]);
-    setMeals(response.data["hydra:member"]);
-    setLoading(false);
-  };
-
   useEffect(() => {
+    const fetchMeals = async () => {
+      const response = await axios.get(
+        "https://barquett-api.formaterz.fr/api/meals?page=" + currentPage
+      );
+      setLastPage(response.data["hydra:view"]["hydra:last"].split("page=")[1]);
+      setMeals(response.data["hydra:member"]);
+      setLoading(false);
+    };
     fetchMeals();
-  }, [refresh, currentPage, fetchMeals]);
+  }, [refresh, currentPage]);
   const pages = [];
   for (let i = 1; i <= lastPage; i++) {
     pages.push(

@@ -10,6 +10,7 @@ function EditPage() {
   const [edit, setEdit] = React.useState(false);
   const location = useLocation();
   const { state } = location;
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     setLoading(true);
@@ -41,12 +42,22 @@ function EditPage() {
       if (edit) {
         response = await axios.put(
           `https://barquett-api.formaterz.fr/api/meals/${meal.id}`,
-          meal
+          meal,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
         );
       } else {
         response = await axios.post(
           "https://barquett-api.formaterz.fr/api/meals",
-          meal
+          meal,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
         );
       }
       setLoading(false);

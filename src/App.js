@@ -5,6 +5,7 @@ import EditPage from "./pages/EditPage";
 import Navigation from "./components/Navigation";
 import { NotificationContainer } from "react-notifications";
 import "react-notifications/lib/notifications.css";
+import RegisterPage from "./pages/RegisterPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/*" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
         <Route path="/edit" element={<EditPage />} />
       </Routes>
     </BrowserRouter>

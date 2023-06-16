@@ -3,7 +3,7 @@ import axios from "axios";
 import { NotificationManager } from "react-notifications";
 import { useNavigate } from "react-router-dom";
 
-function LoginPage() {
+function RegisterPage() {
   const navigate = useNavigate();
   const [loading, setLoading] = React.useState(false);
   const [formData, setFormData] = React.useState({});
@@ -13,11 +13,11 @@ function LoginPage() {
     setLoading(true);
     try {
       const response = await axios.post(
-        "https://barquett-api.formaterz.fr/api/login",
+        "https://barquett-api.formaterz.fr/api/register",
         formData
       );
       if (response.status === 200) {
-        NotificationManager.success("formation", "Connexion réussite", 3000);
+        NotificationManager.success("formation", "Inscription réussite", 3000);
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("username", formData.username);
         navigate("/");
@@ -46,6 +46,15 @@ function LoginPage() {
         }
       />
       <input
+        type="email"
+        placeholder="Email"
+        className=" border-2 rounded-full placeholder:text-center p-2"
+        required
+        onChange={(e) =>
+          setFormData({ ...formData, email: e.target.value.trim() })
+        }
+      />
+      <input
         type="password"
         placeholder="Mot de passe"
         className=" border-2 rounded-full placeholder:text-center p-2"
@@ -64,4 +73,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default RegisterPage;

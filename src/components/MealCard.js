@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ImageDefault from "../assets/img/default.png";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
@@ -7,6 +7,8 @@ import { NotificationManager } from "react-notifications";
 import { NavLink } from "react-router-dom";
 
 function MealCard({ meal, setRefresh, refresh }) {
+  const username = localStorage.getItem("username");
+
   const handleDelete = async () => {
     const confirmDelete = window.confirm(
       "Voulez-vous vraiment supprimer ce repas ?"
@@ -29,17 +31,19 @@ function MealCard({ meal, setRefresh, refresh }) {
     <div className="rounded-md border-4 w-60 m-2 relative">
       <img src={ImageDefault} className=" bg-gray-300 p-4" />
       <div className=" text-center p-2">
-        <div className=" absolute top-1 right-1 flex gap-2 ">
-          <NavLink to="/edit" state={{ meal: meal }}>
-            <FaEdit className=" cursor-pointer" />
-          </NavLink>
-          <MdDelete
-            className=" cursor-pointer"
-            onClick={() => {
-              handleDelete();
-            }}
-          />
-        </div>
+        {meal.createdBy && meal.createdBy === username ? (
+          <div className=" absolute top-1 right-1 flex gap-2 ">
+            <NavLink to="/edit" state={{ meal: meal }}>
+              <FaEdit className=" cursor-pointer" />
+            </NavLink>
+            <MdDelete
+              className=" cursor-pointer"
+              onClick={() => {
+                handleDelete();
+              }}
+            />
+          </div>
+        ) : null}
         <h3
           className={
             meal.name.length > 6 ? "font-bold text-sm" : "font-bold text-xl"

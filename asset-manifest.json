@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/barquett-correction/static/css/main.1af7122e.css",
+    "main.js": "/barquett-correction/static/js/main.4fc9a843.js",
+    "static/media/notification.svg?s3g3t9": "/barquett-correction/static/media/notification.5d0158671dd860c714c4.svg",
+    "static/media/notification.eot": "/barquett-correction/static/media/notification.3657084dc0419605a91c.eot",
+    "static/media/notification.woff?s3g3t9": "/barquett-correction/static/media/notification.c392cd33d9d9de730f9d.woff",
+    "static/media/notification.ttf?s3g3t9": "/barquett-correction/static/media/notification.c5d9251ea82e42f75381.ttf",
+    "index.html": "/barquett-correction/index.html",
+    "main.1af7122e.css.map": "/barquett-correction/static/css/main.1af7122e.css.map",
+    "main.4fc9a843.js.map": "/barquett-correction/static/js/main.4fc9a843.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1af7122e.css",
+    "static/js/main.4fc9a843.js"
+  ]
+}

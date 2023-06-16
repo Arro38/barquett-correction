@@ -19,7 +19,7 @@ function RegisterPage() {
       if (response.status === 200) {
         NotificationManager.success("formation", "Inscription réussite", 3000);
         localStorage.setItem("token", response.data.token);
-        localStorage.setItem("username", formData.username);
+        localStorage.setItem("username", formData.username.lowerCase());
         navigate("/");
       } else {
         NotificationManager.error("Une erreur est survenue", "Erreur", 3000);
